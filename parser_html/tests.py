@@ -1,7 +1,24 @@
 import unittest
 from utility import *
+from parser_funcs import *
 
-tink_host = 'https://journal.tinkoff.ru/'
+get_flows_args = {'flow_inner_args': {'name': 'div', 'attrs': {'class': 'inner--K9Svv'}},
+                  'flow_topic_args': {'name':'a', 'attrs': {'class': 'item--ALUvj'}},
+                  'flow_title_args': {'name': 'h4','attrs': {'class': 'heading--lf0qy'}}
+                  }
+get_flow_news_args = {'article_card_args': {'name': 'div', 'attrs': {'class': 'item--LA1zO'}},
+                      'article_link_args': {'name': 'a', 'attrs': {'class': 'link--aKZVS'}},
+                      'article_author_args': {'name': 'div', 'attrs': {'class': 'name--ur745'}},
+                      'article_date_args': {'name': 'time', 'attrs': {'class':'date--ZZJXU'}},
+                      'article_views_args': {'name': 'span', 'attrs': {'class': 'counter--sXVCe'}},
+                      'article_title_args': {'name': 'h3', 'attrs': {'class': 'title--Oe3sZ'}},
+                      'article_likes_args': {'name': 'span', 'attrs': {'class': 'counter--fwxAj'}},
+                      'article_comments_count_args': {'name': 'span', 'attrs': {'class': 'content--WdSlu'}},
+                      'article_saves_count_args': {'name': 'button', 'attrs': {'class': 'favorites--y85P0'}},
+                      'topic_args': {'name': 'h1', 'attrs': {'class': 'heading--lf0qy'}}
+                      }
+
+tink_host = 'https://journal.tinkoff.ru/flows/'
 null_host = None
 some_host = 'https://ya.ru'
 broken_host = 'htps://ya.ru'
@@ -12,11 +29,17 @@ class TestParser(unittest.TestCase):
 
         self.tink_host = tink_host
         self.null_host = null_host
-        self.null_host = some_host
+        self.some_host = some_host
         self.broken_host = broken_host
         self.numeric_host = numeric_host
+
+        self.tink_html = get_html(self.tink_host).content
+        self.null_html = None
+        self.empty_html = ''
+        self.some_html = get_html(self.some_host).content
         
-    # get_html test casec function 
+    # get_html test cases 
+        
     def test1_get_html(self):
        self.assertRaises(Exception, get_html(self.tink_host))
 
@@ -31,5 +54,19 @@ class TestParser(unittest.TestCase):
 
     def test5_get_html(self):
         self.assertRaises(Exception, get_html(self.numeric_host))
+
+    # get_flows test cases
+    
+    def test1_get_flows(self):
+       self.assertRaises(Exception, get_flows(self.tink_html, get_flows_args))
+
+    def test2_get_flows(self):
+       self.assertRaises(Exception, get_flows(self.null_html, get_flows_args))
+
+    def test3_get_flows(self):
+       self.assertRaises(Exception, get_flows(self.empty_html, get_flows_args))
+
+    def test4_get_flows(self):
+       self.assertRaises(Exception, get_flows(self.some_html, get_flows_args))
             
 unittest.main()
