@@ -30,6 +30,6 @@ class TestParser(unittest.TestCase):
         self.assertRaises(Exception, get_html(self.broken_host))
 
     def test5_get_html(self):
-        self.assertRaises(Exception, get_html(self.broken_host))
+        self.assertRaises(Exception, get_html(self.numeric_host))
             
 unittest.main()
