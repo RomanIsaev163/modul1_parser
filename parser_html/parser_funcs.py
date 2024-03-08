@@ -107,6 +107,9 @@ def parse_flows(flows_links: np.ndarray, args):
                             'topic': [], 'title': [], 'link': [],
                             'likes':[], 'comments_count':[], 'saves_count': [],
                             'flow_page_link': [], 'flow_link': []})
+    if flows_links is None:
+        return flows_df
+    
     links_visited = set() #Множество ссылок на новости которые уже добавили
     
     for flow_link in tqdm(flows_links):
