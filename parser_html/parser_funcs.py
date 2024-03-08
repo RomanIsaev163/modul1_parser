@@ -40,7 +40,7 @@ def get_flow_page_news(html: bytes, args: dict, links_visited: set) -> pd.DataFr
     Парсинг страницы потока
   '''
   soup = bs(html,'html.parser')
-  items = soup.find_all(**(args['article_card_args']))[:3] # поиск всех карточек с новостями
+  items = soup.find_all(**(args['article_card_args']))[:args['news_per_page']] # поиск всех карточек с новостями
   news_dict = {'author': [], 'date': [], 'views': [],
                   'topic': [], 'title': [], 'link': [],
                 'likes':[], 'comments_count':[], 'saves_count': []}
@@ -81,7 +81,7 @@ def parse_flow(flow_link: str, args, links_visited: set):
     flow_df = pd.DataFrame({'author': [], 'date': [], 'views': [],
                             'topic': [], 'title': [], 'link': [],
                             'likes':[], 'comments_count':[], 'saves_count': [], 'flow_page_link': [], 'flow_link': []})
-    for page in tqdm(range(1, 2)):
+    for page in tqdm(range(1, args['nums_pages'] + 1)):
         print('Парсинг страничек')
         time.sleep(3)
         try:

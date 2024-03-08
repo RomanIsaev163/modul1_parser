@@ -1,2 +1,5 @@
 *.csv
 __pycache__
+data_dir
+data
+converted_docx

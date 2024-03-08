@@ -16,7 +16,8 @@ get_flow_news_args = {'article_card_args': {'name': 'div', 'attrs': {'class': 'i
                       'article_likes_args': {'name': 'span', 'attrs': {'class': 'counter--fwxAj'}},
                       'article_comments_count_args': {'name': 'span', 'attrs': {'class': 'content--WdSlu'}},
                       'article_saves_count_args': {'name': 'button', 'attrs': {'class': 'favorites--y85P0'}},
-                      'topic_args': {'name': 'h1', 'attrs': {'class': 'heading--lf0qy'}}
+                      'topic_args': {'name': 'h1', 'attrs': {'class': 'heading--lf0qy'}},
+                      'news_per_page': 3, 'nums_pages': 2
                       }
 
 tink_host = 'https://journal.tinkoff.ru/flows/'
