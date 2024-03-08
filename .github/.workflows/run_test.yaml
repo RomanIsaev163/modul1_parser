@@ -1,6 +1,8 @@
 name: Run tests on any push
 on:
   push:
+    tags:
+      - '!refs/tags/*'
     branches:
       - '*'
 jobs:
