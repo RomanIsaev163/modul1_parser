@@ -12,12 +12,13 @@ def get_flows(html: bytes, args: dict) -> pd.DataFrame:
         Парсинг страницы с потоками https://journal.tinkoff.ru/flows/
         Собирает: названия потоков, топики потоков, ссылки на страницы топиков
     '''
+    args['flow_inner_args']
     soup = bs(html,'html.parser')
-    items = soup.find_all(**(args['flow_inner_args']))[:2]
+    items = soup.find_all(**(args['flow_inner_args']))[:args['flows_cards_num']]
     print(f'Всего flows: {len(items)}')
     flow_dict = {'flow_title': [], 'start_topic': [], 'flow_link': []}
     for item in tqdm(items):
-        flow_items = item.find_all(**(args['flow_topic_args']))[:2]
+        flow_items = item.find_all(**(args['flow_topic_args']))[:args['flows_units_per_card']]
         
         for flow_item in flow_items:
             flow_dict['start_topic'].append(flow_item.text)
@@ -96,7 +97,7 @@ def parse_flow(flow_link: str, args, links_visited: set):
     return flow_df
 
 
-def pase_flows(flows_links: np.ndarray, args):
+def parse_flows(flows_links: np.ndarray, args):
     '''
         Парсинг страниц потоков по их ссылкам
     '''
