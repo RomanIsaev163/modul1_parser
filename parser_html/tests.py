@@ -63,30 +63,30 @@ class TestParser(unittest.TestCase):
 
     # get_flows test cases
     
-    def test1_get_flows(self):
+    def test6_get_flows(self):
        self.assertRaises(Exception, get_flows(self.tink_html, get_flows_args))
 
-    def test2_get_flows(self):
+    def test7_get_flows(self):
        self.assertRaises(Exception, get_flows(self.null_html, get_flows_args))
 
-    def test3_get_flows(self):
+    def test8_get_flows(self):
        self.assertRaises(Exception, get_flows(self.empty_html, get_flows_args))
 
-    def test4_get_flows(self):
+    def test9_get_flows(self):
        self.assertRaises(Exception, get_flows(self.some_html, get_flows_args))
 
     #  get_flows test cases
        
-    def test1_parse_flow(self):
+    def test10_parse_flow(self):
         self.assertRaises(Exception,parse_flows(self.tink_flows['flow_link'].values, get_flow_news_args))
 
-    def test2_parse_flow(self):
+    def test11_parse_flow(self):
         self.assertRaises(Exception,parse_flows(self.empty_flows, get_flow_news_args))
     
-    def test3_parse_flow(self):
+    def test12_parse_flow(self):
         self.assertRaises(Exception,parse_flows(self.null_flows, get_flow_news_args))
 
-    def test4_parse_flow(self):
+    def test13_parse_flow(self):
         self.assertRaises(Exception,parse_flows(self.random_flws, get_flow_news_args))
             
 unittest.main()
