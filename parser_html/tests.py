@@ -38,6 +38,11 @@ class TestParser(unittest.TestCase):
         self.null_html = None
         self.empty_html = ''
         self.some_html = get_html(self.some_host).content
+
+        self.tink_flows = get_flows(self.tink_html, get_flows_args)
+        self.null_flows = None
+        self.empty_flows = []
+        self.random_flws = ['random', 'random']
         
     # get_html test cases 
         
@@ -69,5 +74,19 @@ class TestParser(unittest.TestCase):
 
     def test4_get_flows(self):
        self.assertRaises(Exception, get_flows(self.some_html, get_flows_args))
+
+    #  get_flows test cases
+       
+    def test1_parse_flow(self):
+        self.assertRaises(Exception,parse_flows(self.tink_flows['flow_link'].values, get_flow_news_args))
+
+    def test2_parse_flow(self):
+        self.assertRaises(Exception,parse_flows(self.empty_flows, get_flow_news_args))
+    
+    def test3_parse_flow(self):
+        self.assertRaises(Exception,parse_flows(self.null_flows, get_flow_news_args))
+
+    def test4_parse_flow(self):
+        self.assertRaises(Exception,parse_flows(self.random_flws, get_flow_news_args))
             
 unittest.main()
