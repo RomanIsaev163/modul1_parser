@@ -4,7 +4,8 @@ from parser_funcs import *
 
 get_flows_args = {'flow_inner_args': {'name': 'div', 'attrs': {'class': 'inner--K9Svv'}},
                   'flow_topic_args': {'name':'a', 'attrs': {'class': 'item--ALUvj'}},
-                  'flow_title_args': {'name': 'h4','attrs': {'class': 'heading--lf0qy'}}
+                  'flow_title_args': {'name': 'h4','attrs': {'class': 'heading--lf0qy'}},
+                  'flows_cards_num' : 4, 'flows_units_per_card': 2
                   }
 get_flow_news_args = {'article_card_args': {'name': 'div', 'attrs': {'class': 'item--LA1zO'}},
                       'article_link_args': {'name': 'a', 'attrs': {'class': 'link--aKZVS'}},
