@@ -13,7 +13,7 @@ def get_flows(html: bytes, args: dict) -> pd.DataFrame:
         Собирает: названия потоков, топики потоков, ссылки на страницы топиков
     '''
     flow_dict = {'flow_title': [], 'start_topic': [], 'flow_link': []}
-    if html in None:
+    if html is None:
         return pd.DataFrame(flow_dict)
     soup = bs(html,'html.parser')
     items = soup.find_all(**(args['flow_inner_args']))[:args['flows_cards_num']]
