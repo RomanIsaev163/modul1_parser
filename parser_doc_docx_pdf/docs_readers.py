@@ -45,6 +45,11 @@ def read_pdf_file(pdf_file_path: str) -> str:
         return None
     
 def read_document(document_file_full_path: str, save_dir_path: str = '') -> str:
+    '''
+        Читаем текст документа с расширениями doc docx pdf rtf
+        Для чтения doc и rtf конвертируем их в формат docx и сохраняем в директорию save_dir_path
+        Если save_dir_path не указано, то сохраняется в изначальную директорию
+    '''
     re_file_extension = re.compile(r'\.\w+')
     file_name = re.search(r'\/([\w\d]+)\.', document_file_full_path).group(1)
     dir_path = re.search(r'.+\/', document_file_full_path).group(0)
@@ -65,6 +70,9 @@ def read_document(document_file_full_path: str, save_dir_path: str = '') -> str:
         return read_pdf_file(document_file_full_path)
     
 def create_df(documents_files_paths: list[str]):
+    '''
+        Читаем список файлов и сохраняем их текст и имя файла в df
+    '''
     text_filename = []
     for document_path, filename in documents_files_paths:
         text = read_document(document_path)
