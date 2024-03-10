@@ -5,7 +5,7 @@ from PyPDF2 import PdfReader
 import re
 import aspose.words as aw
 import pandas as pd
-
+from convert_djvu2pdf import convert_djvu2pdf
 from utility import convert_doc_docx
 
 def read_docx_file(docx_file_path: str) -> str:
@@ -36,8 +36,10 @@ def read_pdf_file(pdf_file_path: str) -> str:
         with open(pdf_file_path, "rb") as filehandle:
             pdf = PdfReader(filehandle)
             num_pages = len(pdf.pages)
+            print(f'num_pages: {num_pages}')
             for num in range(num_pages):
                 page = pdf.pages[num]
+                print(f'page.extract_text(): {len(page.extract_text())}')
                 full_pdf_text = full_pdf_text + '\n' + page.extract_text()
         return full_pdf_text
     except:
@@ -68,6 +70,12 @@ def read_document(document_file_full_path: str, save_dir_path: str = '') -> str:
 
     elif file_extension[0] == '.pdf':
         return read_pdf_file(document_file_full_path)
+    # не работает 
+    elif file_extension[0] == '.djvu':
+        convert_djvu2pdf([document_file_full_path])
+        new_pdf_path = f'{dir_path}{file_name}.pdf'
+        print(f'new_pdf_path: {new_pdf_path}')
+        return read_pdf_file(new_pdf_path)
     
 def create_df(documents_files_paths: list[str]):
     '''
