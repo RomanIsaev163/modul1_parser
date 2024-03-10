@@ -22,7 +22,7 @@ def read_docx_file(docx_file_path: str) -> str:
             full_doc_text = full_doc_text + '\n' + para.text
         return full_doc_text.replace('Evaluation Only. Created with Aspose.Words. Copyright 2003-2022 Aspose Pty Ltd.', '')
     except:
-        print(f'Ошибка: Не удалось открыть файл: {docx_file_path}\n {traceback.format_exc()}')
+        print(f'Ошибка: Не удалось открыть файл: {docx_file_path}')
         return None
     
 def read_pdf_file(pdf_file_path: str) -> str:
@@ -41,7 +41,7 @@ def read_pdf_file(pdf_file_path: str) -> str:
                 full_pdf_text = full_pdf_text + '\n' + page.extract_text()
         return full_pdf_text
     except:
-        print(f'Ошибка: Не удалось открыть файл: {pdf_file_path}\n {traceback.format_exc()}')
+        print(f'Ошибка: Не удалось открыть файл: {pdf_file_path}')
         return None
     
 def read_document(document_file_full_path: str, save_dir_path: str = '') -> str:
