@@ -27,10 +27,10 @@ def init_file_paths(data_dir_path: str) -> tuple[list[tuple[str,str]],
         except:
             continue
     
-    print(f'Количество pdf-файлов: {len(pdf_file_paths)}')
-    print(f'Количество doc-файлов: {len(doc_file_paths)}')
-    print(f'Количество docx-файлов: {len(docx_file_paths)}')
-    print(f'Количество rtf-файлов: {len(rtf_file_paths)}')
+    # print(f'Количество pdf-файлов: {len(pdf_file_paths)}')
+    # print(f'Количество doc-файлов: {len(doc_file_paths)}')
+    # print(f'Количество docx-файлов: {len(docx_file_paths)}')
+    # print(f'Количество rtf-файлов: {len(rtf_file_paths)}')
 
     return doc_file_paths, docx_file_paths, pdf_file_paths, rtf_file_paths
 

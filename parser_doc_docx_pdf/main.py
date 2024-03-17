@@ -15,7 +15,7 @@ from docs_readers import read_document, create_df
 from convert_djvu2pdf import convert_djvu2pdf
 
 
-#download()
+download()
 data_dir = 'data_dir/hacka-aka-embedika-2/docs'
 json_path = 'data_dir/hacka-aka-embedika-2/classes.json'
 
@@ -27,4 +27,5 @@ with open(json_path) as json_file:
 
 doc_file_paths, docx_file_paths, pdf_file_paths, rtf_file_paths = init_file_paths(data_dir)
 
-create_df(doc_file_paths).to_csv('docs_data.csv')
+# create_df(doc_file_paths).to_csv('docs_data.csv')
+create_df(doc_file_paths).to_csv('docx_file_paths.csv')

@@ -36,10 +36,10 @@ def read_pdf_file(pdf_file_path: str) -> str:
         with open(pdf_file_path, "rb") as filehandle:
             pdf = PdfReader(filehandle)
             num_pages = len(pdf.pages)
-            print(f'num_pages: {num_pages}')
+            # print(f'num_pages: {num_pages}')
             for num in range(num_pages):
                 page = pdf.pages[num]
-                print(f'page.extract_text(): {len(page.extract_text())}')
+                # print(f'page.extract_text(): {len(page.extract_text())}')
                 full_pdf_text = full_pdf_text + '\n' + page.extract_text()
         return full_pdf_text
     except:
@@ -64,7 +64,7 @@ def read_document(document_file_full_path: str, save_dir_path: str = '') -> str:
         return read_docx_file(document_file_full_path)
     
     elif file_extension[0] == '.doc' or file_extension[0] == '.rtf':
-        print('исправляем документ')
+        # print('исправляем документ')
         new_docx_path = convert_doc_docx([[document_file_full_path, file_name]], save_dir_path)[0][0]
         return read_docx_file(new_docx_path)
 
@@ -74,7 +74,7 @@ def read_document(document_file_full_path: str, save_dir_path: str = '') -> str:
     elif file_extension[0] == '.djvu':
         convert_djvu2pdf([document_file_full_path])
         new_pdf_path = f'{dir_path}{file_name}.pdf'
-        print(f'new_pdf_path: {new_pdf_path}')
+        # print(f'new_pdf_path: {new_pdf_path}')
         return read_pdf_file(new_pdf_path)
     
 def create_df(documents_files_paths: list[str]):
