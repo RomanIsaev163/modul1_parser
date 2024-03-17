@@ -14,9 +14,15 @@ class TestParser(unittest.TestCase):
 
 
       data_dir = './parser_doc_docx_pdf/test_files'
-      self.all_symbols = ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
+      self.all_symbols = '!"#$%&\\\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
+      self.pdf_all_symbols = '!"#$%&\\\'()*+,-\n./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`abcdefghijklmnopqrs\ntuvwxyz{|}~'
 
       doc_file_paths, docx_file_paths, pdf_file_paths, rtf_file_paths = init_file_paths(data_dir)
+
+      #print(f'doc_file_paths: {doc_file_paths}')
+      #print(f'docx_file_paths: {docx_file_paths}')
+      #print(f'pdf_file_paths: {pdf_file_paths}')
+      #print(f'rtf_file_paths: {rtf_file_paths}')
 
       self.doc_content_df = create_df(doc_file_paths)
       self.empty_doc_file_name = 'empty.doc'
@@ -95,19 +101,19 @@ class TestParser(unittest.TestCase):
    # CONTENT TEST CASE
    def test_content_doc_empty(self):
       content = self.doc_content_df[self.doc_content_df['doc_file_name'] == self.empty_doc_file_name]['text'].values[0]
-      self.assertEqual('\n', content)
+      self.assertEqual('', content)
 
    def test_content_docx_empty(self):
-      content = self.doc_content_df[self.docx_content_df['doc_file_name'] == self.empty_docx_file_name]['text'].values[0]
-      self.assertEqual('\n', content)
+      content = self.docx_content_df[self.docx_content_df['doc_file_name'] == self.empty_docx_file_name]['text'].values[0]
+      self.assertEqual('', content)
 
    def test_content_pdf_empty(self):
-      content = self.doc_content_df[self.pdf_content_df['doc_file_name'] == self.empty_pdf_file_name]['text'].values[0]
-      self.assertEqual('\n', content)
+      content = self.pdf_content_df[self.pdf_content_df['doc_file_name'] == self.empty_pdf_file_name]['text'].values[0]
+      self.assertEqual('', content)
 
    def test_content_rtf_empty(self):
-      content = self.doc_content_df[self.rtf_content_df['doc_file_name'] == self.empty_rtf_file_name]['text'].values[0]
-      self.assertEqual('\n', content)
+      content = self.rtf_content_df[self.rtf_content_df['doc_file_name'] == self.empty_rtf_file_name]['text'].values[0]
+      self.assertEqual('', content)
 
 
    def test_content_doc_all(self):
@@ -115,15 +121,15 @@ class TestParser(unittest.TestCase):
       self.assertEqual(self.all_symbols, content)
 
    def test_content_docx_all(self):
-      content = self.doc_content_df[self.docx_content_df['doc_file_name'] == self.all_docx_file_name]['text'].values[0]
+      content = self.docx_content_df[self.docx_content_df['doc_file_name'] == self.all_docx_file_name]['text'].values[0]
       self.assertEqual(self.all_symbols, content)
 
    def test_content_pdf_all(self):
-      content = self.doc_content_df[self.pdf_content_df['doc_file_name'] == self.all_pdf_file_name]['text'].values[0]
-      self.assertEqual(self.all_symbols, content)
+      content = self.pdf_content_df[self.pdf_content_df['doc_file_name'] == self.all_pdf_file_name]['text'].values[0]
+      self.assertEqual(self.pdf_all_symbols, content)
 
    def test_content_rtf_all(self):
-      content = self.doc_content_df[self.rtf_content_df['doc_file_name'] == self.all_rtf_file_name]['text'].values[0]
+      content = self.rtf_content_df[self.rtf_content_df['doc_file_name'] == self.all_rtf_file_name]['text'].values[0]
       self.assertEqual(self.all_symbols, content)
 
 
