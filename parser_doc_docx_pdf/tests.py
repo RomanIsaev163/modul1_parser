@@ -13,7 +13,7 @@ class TestParser(unittest.TestCase):
       self.empty_path = ''
 
 
-      data_dir = 'modul1_parser/parser_doc_docx_pdf/test_files'
+      data_dir = './parser_doc_docx_pdf/test_files'
       self.all_symbols = ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
 
       doc_file_paths, docx_file_paths, pdf_file_paths, rtf_file_paths = init_file_paths(data_dir)
