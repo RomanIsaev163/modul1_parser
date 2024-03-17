@@ -13,7 +13,7 @@ from download_data import download
 from utility import get_docs_paths, init_file_paths
 from docs_readers import read_document, create_df
 from convert_djvu2pdf import convert_djvu2pdf
-
+from pdf_image import read_pdf_image
 
 download()
 data_dir = 'data_dir/hacka-aka-embedika-2/docs'
@@ -29,3 +29,5 @@ doc_file_paths, docx_file_paths, pdf_file_paths, rtf_file_paths = init_file_path
 
 # create_df(doc_file_paths).to_csv('docs_data.csv')
 create_df(doc_file_paths).to_csv('docx_file_paths.csv')
+pdf_image_path_file = '' # подойдет любой pdf документ
+text = read_pdf_image(pdf_image_path_file)
