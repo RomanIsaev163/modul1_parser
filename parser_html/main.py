@@ -14,21 +14,21 @@ from parser_funcs import get_flows, get_flow_page_news, parse_flow, parse_flows,
 
 FILE = '../tinkoffjournal.csv'
 
-get_flows_args = {'flow_inner_args': {'name': 'div', 'attrs': {'class': 'inner--K9Svv'}},
-                  'flow_topic_args': {'name':'a', 'attrs': {'class': 'item--ALUvj'}},
-                  'flow_title_args': {'name': 'h4','attrs': {'class': 'heading--lf0qy'}},
+get_flows_args = {'flow_inner_args': {'name': 'div', 'attrs': {'class': 'inner--cJCdp'}},
+                  'flow_topic_args': {'name':'a', 'attrs': {'class': 'item--wl4mo'}},
+                  'flow_title_args': {'name': 'h4','attrs': {'class': 'heading--_rRg8'}},
                   'flows_cards_num' : 4, 'flows_units_per_card': 2
                   }
-get_flow_news_args = {'article_card_args': {'name': 'div', 'attrs': {'class': 'item--LA1zO'}},
-                      'article_link_args': {'name': 'a', 'attrs': {'class': 'link--aKZVS'}},
-                      'article_author_args': {'name': 'div', 'attrs': {'class': 'name--ur745'}},
-                      'article_date_args': {'name': 'time', 'attrs': {'class':'date--ZZJXU'}},
-                      'article_views_args': {'name': 'span', 'attrs': {'class': 'counter--sXVCe'}},
-                      'article_title_args': {'name': 'h3', 'attrs': {'class': 'title--Oe3sZ'}},
-                      'article_likes_args': {'name': 'span', 'attrs': {'class': 'counter--fwxAj'}},
-                      'article_comments_count_args': {'name': 'span', 'attrs': {'class': 'content--WdSlu'}},
-                      'article_saves_count_args': {'name': 'button', 'attrs': {'class': 'favorites--y85P0'}},
-                      'topic_args': {'name': 'h1', 'attrs': {'class': 'heading--lf0qy'}},
+get_flow_news_args = {'article_card_args': {'name': 'div', 'attrs': {'class': 'item--MjXju'}},
+                      'article_link_args': {'name': 'a', 'attrs': {'class': 'link--TFWpD'}},
+                      'article_author_args': {'name': 'div', 'attrs': {'class': 'name--xzb2U'}},
+                      'article_date_args': {'name': 'time', 'attrs': {'class':'date--QYTLm'}},
+                      'article_views_args': {'name': 'span', 'attrs': {'class': 'counter--YllFn'}},
+                      'article_title_args': {'name': 'h3', 'attrs': {'class': 'title--xzbvq'}},
+                      'article_likes_args': {'name': 'span', 'attrs': {'class': 'counter--MBxDq'}},
+                      'article_comments_count_args': {'name': 'span', 'attrs': {'class': 'content--KWHQJ'}},
+                      'article_saves_count_args': {'name': 'button', 'attrs': {'class': 'icon--OuWxb'}},
+                      'topic_args': {'name': 'h1', 'attrs': {'class': 'heading--_rRg8'}},
                       'news_per_page': 3, 'nums_pages': 2
                       }
 
