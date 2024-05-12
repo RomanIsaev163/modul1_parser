@@ -2,6 +2,8 @@ import unittest
 from utility import *
 from parser_funcs import *
 
+'''
+
 get_flows_args = {'flow_inner_args': {'name': 'div', 'attrs': {'class': 'inner--K9Svv'}},
                   'flow_topic_args': {'name':'a', 'attrs': {'class': 'item--ALUvj'}},
                   'flow_title_args': {'name': 'h4','attrs': {'class': 'heading--lf0qy'}},
@@ -19,7 +21,24 @@ get_flow_news_args = {'article_card_args': {'name': 'div', 'attrs': {'class': 'i
                       'topic_args': {'name': 'h1', 'attrs': {'class': 'heading--lf0qy'}},
                       'news_per_page': 3, 'nums_pages': 2
                       }
-
+'''
+get_flows_args = {'flow_inner_args': {'name': 'div', 'attrs': {'class': 'inner--q56lc'}},
+                  'flow_topic_args': {'name':'a', 'attrs': {'class': 'item--gPa1X'}},
+                  'flow_title_args': {'name': 'h4','attrs': {'class': 'heading--NuQf6'}},
+                  'flows_cards_num' : 2, 'flows_units_per_card': 1
+                  }
+get_flow_news_args = {'article_card_args': {'name': 'div', 'attrs': {'class': 'card--VPII2'}},
+                      'article_link_args': {'name': 'a', 'attrs': {'class': 'link--ILico'}},
+                      'article_author_args': {'name': 'div', 'attrs': {'class': 'name--T02LD'}},
+                      'article_date_args': {'name': 'time', 'attrs': {'class':'date--lnCxF'}},
+                      'article_views_args': {'name': 'span', 'attrs': {'class': 'counter--JuiF0'}},
+                      'article_title_args': {'name': 'h3', 'attrs': {'class': 'title--K0VOg'}},
+                      'article_likes_args': {'name': 'button', 'attrs': {'class': 'likes--nMe0e'}},
+                      'article_comments_count_args': {'name': 'a', 'attrs': {'class': 'bubble--H_faa'}},
+                      'article_saves_count_args': {'name': 'button', 'attrs': {'class': 'favorites--P_JlB'}},
+                      'topic_args': {'name': 'h1', 'attrs': {'class': 'heading--NuQf6'}},
+                      'news_per_page': 2, 'nums_pages': 1
+                      }
 tink_host = 'https://journal.tinkoff.ru/flows/'
 null_host = None
 some_host = 'https://ya.ru'

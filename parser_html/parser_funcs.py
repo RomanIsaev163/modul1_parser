@@ -134,8 +134,8 @@ def get_article_content(link: str):
         soup = bs(html,'html.parser')
         article_text = soup.find('div', attrs = {'class':'_articleView_1v9h1_1'}).text
         article_author = soup.find(lambda tag: (tag.name == 'a' or tag.name == 'div')\
-                                and tag.get('class') == ['_author_1qoqa_6']).text
-        topic_name = soup.find('a', attrs = {'class':'_flow_1xwjy_45'}).text
+                                and tag.get('class') == ['_author_1qlfp_6']).text
+        topic_name = soup.find('a', attrs = {'class':'_flow_1e3dt_45'}).text
         return [article_text.replace(article_author, ''), topic_name]
     except:
         return [None, None]
