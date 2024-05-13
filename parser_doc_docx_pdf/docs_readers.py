@@ -16,6 +16,7 @@ def read_docx_file(docx_file_path: str) -> str:
     '''
     try:
         doc = docx.Document(docx_file_path)
+        print("doc")
         all_paras = doc.paragraphs
         full_doc_text = ''
         for para in all_paras:
@@ -83,7 +84,7 @@ def create_df(documents_files_paths: list[str]):
     '''
     text_filename = []
     for document_path, filename in documents_files_paths:
-        text = read_document(document_path)
+        text = read_document(document_path.replace("\\", "/"))
         text_filename.append([text, filename])
 
     

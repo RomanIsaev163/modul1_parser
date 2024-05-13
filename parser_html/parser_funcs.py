@@ -17,7 +17,6 @@ def get_flows(html: bytes, args: dict) -> pd.DataFrame:
         return pd.DataFrame(flow_dict)
     soup = bs(html,'html.parser')
     items = soup.find_all(**(args['flow_inner_args']))[:args['flows_cards_num']]
-    print(f'Всего flows: {len(items)}')
     
     for item in tqdm(items):
         flow_items = item.find_all(**(args['flow_topic_args']))[:args['flows_units_per_card']]
@@ -44,8 +43,7 @@ def get_flow_page_news(html: bytes, args: dict, links_visited: set) -> pd.DataFr
   news_dict = {'author': [], 'date': [], 'views': [],
                   'topic': [], 'title': [], 'link': [],
                 'likes':[], 'comments_count':[], 'saves_count': []}
-    
-  print(f'Новостей на странице: {len(items)}')
+
   bad_items = []
   skipped_news_count = 0
   for item in tqdm(items):
@@ -82,7 +80,6 @@ def parse_flow(flow_link: str, args, links_visited: set):
                             'topic': [], 'title': [], 'link': [],
                             'likes':[], 'comments_count':[], 'saves_count': [], 'flow_page_link': [], 'flow_link': []})
     for page in tqdm(range(1, args['nums_pages'] + 1)):
-        print('Парсинг страничек')
         time.sleep(3)
         try:
             page_link = f'{flow_link}page/{page}'
@@ -113,8 +110,6 @@ def parse_flows(flows_links: np.ndarray, args):
     links_visited = set() #Множество ссылок на новости которые уже добавили
     
     for flow_link in tqdm(flows_links):
-        print(len(links_visited))
-        print('парсинг потока')
         try:
 
             flow_df = parse_flow(flow_link, args, links_visited)
@@ -133,9 +128,9 @@ def get_article_content(link: str):
         html = get_html(link).content
         soup = bs(html,'html.parser')
         article_text = soup.find('div', attrs = {'class':'_articleView_1v9h1_1'}).text
-        article_author = soup.find(lambda tag: (tag.name == 'a' or tag.name == 'div')\
-                                and tag.get('class') == ['_author_1qoqa_6']).text
-        topic_name = soup.find('a', attrs = {'class':'_flow_1xwjy_45'}).text
+        article_author = soup.find(lambda tag: (tag.name == 'a' or tag.name == 'div') \
+                                               and tag.get('class') == ['_author_1qlfp_6']).text
+        topic_name = soup.find('a', attrs={'class': '_flow_1e3dt_45'}).text
         return [article_text.replace(article_author, ''), topic_name]
     except:
         return [None, None]
